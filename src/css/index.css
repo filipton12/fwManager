@@ -18,5 +18,11 @@
     position: relative;
     top:2px;
     left:2px;
-    height:25px;
+    height:38px;
+  }
+
+  div.pbutton {
+    position: absolute;
+    top:2px;
+    left:305px;
   }

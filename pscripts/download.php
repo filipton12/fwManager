@@ -1,5 +1,5 @@
 <?php
-$file = '/downdir/'.$_GET['fl'];
+$file = '/downdir'.$_GET['fl'];
 if(is_dir($file)){
     header("Location:../index.php?msg=ERROR: This file is folder!");
 }
