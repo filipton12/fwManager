@@ -27,7 +27,7 @@ Project is created with:
 - [x] Uploading whole folders
 - [x] Downloading files from secure directory
 - [ ] Sharing with id
-- [ ] Basic file manager
+- [x] Basic file manager
 - [ ] Basic setup
 
 ## Status

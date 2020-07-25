@@ -6,35 +6,55 @@ if(!isset($_GET['path']))
 else
 {
     $path = $_GET['path'];
+    $path = str_replace("..", "", $path);
     if(!endsWith($path, "/")){
         $path = $path."/";
         header("Location:./filemanager.php?path=$path");
     }
+    if(!startsWith($path, "/")){
+        $path = "/".$path;
+        header("Location:./filemanager.php?path=$path");
+    }
+
+    $replacedpath = str_replace("//", "/", $path);
+    if($path != $replacedpath)
+    {
+        header("Location:./filemanager.php?path=$replacedpath");
+    }
 }
 
-if ($handle = opendir('/downdir'.$path)) 
-{
-    while (false !== ($entry = readdir($handle))) {
+$dirar = array_filter(explode('/', $path));
+$previous = str_replace($dirar[count($dirar)]."/", "", $path);
 
-        if ($entry != "." && $entry != "..") 
-        {
-            if(is_dir('/downdir'.$path.$entry))
-            {
-                $path2 = $path.$entry.'/';
-                echo("<a style=\"color:red;\" href=\"filemanager.php?path=$path2\">$entry</a></br>");
-            }
-            else
-            {
-                $path2 = $path.$entry;
-                echo("<a href=\"pscripts/download.php?fl=$path2\">$entry</a></br>");
-            }
+if($previous != NULL)
+{
+    echo("<a style=\"color:#ff0000;\" href=\"filemanager.php?path=$previous\">..</a></br>");
+}
+
+$rawfiles = scandir('/downdir'.$path);
+$files = array();
+
+foreach ($rawfiles as $file) {
+    if ($file != '.' && $file != '..') {
+        if(is_dir('/downdir'.$path.$file)){
+            $path2 = $path.$file.'/';
+            echo("<a style=\"color:#00FF3E;\" href=\"filemanager.php?path=$path2\">$file</a></br>");
+        }
+        else{
+            $files[] = $file;
         }
     }
-    closedir($handle);
+}
+foreach($files as $file){
+    $path2 = $path.$file;
+    echo("<a href=\"pscripts/download.php?fl=$path2\">$file</a></br>");
 }
 
 function endsWith($haystack, $needle) {
     return substr_compare($haystack, $needle, -strlen($needle)) === 0;
+}
+function startsWith($haystack, $needle) {
+    return substr_compare($haystack, $needle, 0, strlen($needle)) === 0;
 }
 ?>
 
