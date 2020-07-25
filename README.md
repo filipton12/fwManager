@@ -7,6 +7,7 @@
 * [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
+* [Contact](#contact)
 
 ## General info
 fwManager is basic file explorer with uploading and downloading features. </br>
@@ -32,6 +33,5 @@ Project is created with:
 ## Status
 Project is: _in progress_
 
-</br>
-***
-**Created by: filipton**
+## Contact
+Created by [@filipton](https://filipton.github.io/fwManager/) - feel free to contact me!
