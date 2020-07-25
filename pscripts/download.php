@@ -1,7 +1,7 @@
 <?php
 $file = '/downdir/'.$_GET['fl'];
 if(is_dir($file)){
-    header("Location:index.php?msg=ERROR: This file is folder!");
+    header("Location:../index.php?msg=ERROR: This file is folder!");
 }
 
 header('Content-Description: File Transfer');
