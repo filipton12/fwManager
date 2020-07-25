@@ -2,7 +2,7 @@
 if($_POST['ut'] == "file")
 {
   $target_dir = "/downdir/";
-  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+  $target_file = $target_dir . basename($_FILES["file"]["name"]);
   $uploadOk = 1;
   
   if(isset($_POST["submit"])) {
@@ -19,9 +19,9 @@ if($_POST['ut'] == "file")
   } 
   else 
   {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) 
     {
-      echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+      echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
     } 
     else 
     {
@@ -31,9 +31,7 @@ if($_POST['ut'] == "file")
 }
 else if($_POST['ut'] == "folder")
 {
-  if(isset($_POST['upload']))
-  {
-  	if($_POST['foldername'] != "")
+  if($_POST['foldername'] != "")
   	{
   		$foldername=$_POST['foldername'];
       if(!is_dir($foldername)) 
@@ -50,6 +48,5 @@ else if($_POST['ut'] == "folder")
   		}
   		echo "Folder is successfully uploaded";
   	}
-  }
 }
 ?>
