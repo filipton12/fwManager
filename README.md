@@ -20,7 +20,7 @@ Project is created with:
 * JavaScript
 
 ## Setup
-```bash
+```
 sudo apt update
 sudo apt install apache2 php -y
 
