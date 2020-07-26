@@ -1,4 +1,6 @@
 <?php
+include 'global.php';
+
 if(isset($_GET['msg'])){
   echo("<script>if(confirm('".$_GET['msg']."')){ window.location.replace(\"index.php\"); } else { { window.location.replace(\"index.php\"); } }</script>");
 }

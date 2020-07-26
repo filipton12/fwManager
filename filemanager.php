@@ -1,4 +1,6 @@
 <?php
+include 'global.php';
+
 if(!isset($_GET['path']))
 {
     header("Location:./filemanager.php?path=/");

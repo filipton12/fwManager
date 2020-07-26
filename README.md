@@ -1,5 +1,5 @@
 # fwManager
-> Its basic web file manager.
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/filipton/fwManager?label=Latest%20Release&style=for-the-badge)
 
 ## Table of contents
 * [General info](#general-info)
